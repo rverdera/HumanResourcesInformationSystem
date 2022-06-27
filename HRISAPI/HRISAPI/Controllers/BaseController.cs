@@ -26,8 +26,11 @@ public class BaseController<T> : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Create([FromBody]T model)
+    public IActionResult Create([FromBody] T model)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
         _baseRepository.Add(model);
         return Ok();
     }
@@ -35,6 +38,9 @@ public class BaseController<T> : ControllerBase
     [HttpPut]
     public IActionResult Update([FromBody] T model)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
         _baseRepository.Update(model);
         return Ok();
     }

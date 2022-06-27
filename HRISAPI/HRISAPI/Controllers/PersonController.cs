@@ -2,7 +2,16 @@
 
 public class PersonController : BaseController<PersonModel>
 {
-    public PersonController(IBaseRepository<PersonModel> baseRepository) : base(baseRepository)
+    private readonly IPersonRepository _personRepository;
+
+    public PersonController(IPersonRepository personRepository) : base(personRepository)
     {
+        _personRepository = personRepository;
+    }
+
+    [HttpGet("ByAge/{age}")]
+    public IActionResult GetByAge(int age)
+    {
+        return Ok(_personRepository.GetByAge(age));
     }
 }

@@ -6,10 +6,12 @@ public class FakeDbContext
     {
         UserModels = new List<UserModel>();
         PersonModels = new List<PersonModel>();
+        PositionModels = new List<PositionModel>();
     }
 
     public List<UserModel> UserModels { get; set; }
     public List<PersonModel> PersonModels { get; set; }
+    public List<PositionModel> PositionModels { get; set; }
 
     public List<T> GetTable<T>()
     {

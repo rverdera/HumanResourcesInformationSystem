@@ -6,6 +6,8 @@ global using HRISAPI.Repositories;
 
 global using Microsoft.AspNetCore.Http;
 global using Microsoft.AspNetCore.Mvc;
+global using System.ComponentModel.DataAnnotations;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,8 @@ builder.Services.AddControllers();
 
 //builder.Services.AddSingleton<IUserRepository, UserRepository>();
 builder.Services.AddSingleton(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+builder.Services.AddSingleton<IPersonRepository, PersonRepository>();
+builder.Services.AddSingleton<IPositionRepository, PositionRepository>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

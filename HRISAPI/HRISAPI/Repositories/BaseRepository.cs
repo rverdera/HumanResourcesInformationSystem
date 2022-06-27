@@ -3,8 +3,8 @@
 public class BaseRepository<T> : IBaseRepository<T>
     where T : IBaseModel
 {
-    private readonly FakeDbContext _db = new FakeDbContext();
-    private readonly List<T> _table;
+    protected readonly FakeDbContext _db = new FakeDbContext();
+    protected readonly List<T> _table;
 
     public BaseRepository()
     {

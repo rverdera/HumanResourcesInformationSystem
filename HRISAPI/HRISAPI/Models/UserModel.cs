@@ -1,9 +1,13 @@
-﻿namespace HRISAPI.Models;
+﻿
+namespace HRISAPI.Models;
 
-public class UserModel :IBaseModel
+public class UserModel : IBaseModel
 {
     public int Id { get; set; }
-    public string UserName { get; set; }
-    public string Password { get; set; }
 
+    [Required, EmailAddress]
+    public string Email { get; set; }
+
+    [Required]
+    public string Password { get; set; }
 }
